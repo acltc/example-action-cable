@@ -2,13 +2,11 @@
   <div ng-controller="messagesCtrl" ng-init="setup()">
     <h1>Messages</h1>  
     <% if current_user %>
-      <%= form_tag "/messages", method: :post do %>
-        <div>
-          <%= label_tag :body, "New message: " %>
-          <%= text_field_tag :body %>
-          <%= submit_tag "Submit" %>
-        </div>
-      <% end %>
+      <div>
+        <label for="body">New message: </label>
+        <input type="text" id="body" name="body" ng-model="newMessageBody">
+        <input type="submit" ng-click="createNewMessage(newMessageBody)">
+      </div>
     <% end %>
     <div class="message" ng-repeat="message in messages | orderBy:'created_at':true">
       {{ message.name }}: {{ message.body }}
