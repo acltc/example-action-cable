@@ -1,4 +1,13 @@
 <h1>Messages</h1>
+<% if current_user %>
+  <%= form_tag "/messages", method: :post do %>
+    <div>
+      <%= label_tag :body, "New message: " %>
+      <%= text_field_tag :body %>
+      <%= submit_tag "Submit" %>
+    </div>
+  <% end %>
+<% end %>
 <% @messages.each do |message| %>
   <div class='message'>
     <%= message.user.name %>: <%= message.body %>
