@@ -13,7 +13,6 @@
         body: body
       };
       $http.post('/api/v1/messages', params).then(function(response) {
-        $scope.messages.push(response.data);
         $scope.newMessageBody = '';
       });
     };
