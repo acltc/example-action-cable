@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/' => 'messages#index'
+  
   get '/messages' => 'messages#index'
   post '/messages' => 'messages#create'
 
